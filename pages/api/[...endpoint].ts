@@ -1,8 +1,16 @@
 import generateToken from 'lib/generateToken';
+import NextCors from 'nextjs-cors';
 import Spotify from 'lib/spotify';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
+	await NextCors(req, res, {
+		// Options
+		methods: ['GET'],
+		origin: ['https://audiobox.errbint.net', 'http://localhost:3000'],
+		optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+	});
+
 	if (!Array.isArray(req.query.endpoint)) return;
 
 	const endpoint = '/' + req.query.endpoint.join('/');
