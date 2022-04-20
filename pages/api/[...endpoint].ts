@@ -5,10 +5,9 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
 	await NextCors(req, res, {
-		// Options
 		methods: ['GET'],
-		origin: ['https://audiobox.errbint.net', 'http://localhost:3000'],
-		optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+		origin: ['https://audiobox.errbint.net', 'https://dev.audiobox.errbint.net', 'http://localhost:3000'],
+		optionsSuccessStatus: 200,
 	});
 
 	if (!Array.isArray(req.query.endpoint)) return;
