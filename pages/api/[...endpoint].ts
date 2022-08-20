@@ -6,7 +6,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
 	await NextCors(req, res, {
 		methods: ['GET'],
-		origin: ['https://audiobox.errbint.net', 'https://dev.audiobox.errbint.net', 'http://localhost:3000'],
+		origin: ['https://audiobox.errbint.net', 'https://audiobox.angkasa.one', 'https://dev.audiobox.errbint.net', 'http://localhost:3000'],
 		optionsSuccessStatus: 200,
 	});
 
